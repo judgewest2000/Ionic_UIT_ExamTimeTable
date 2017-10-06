@@ -51,11 +51,13 @@ export class HomePage extends FormBaseComponent implements OnInit, AfterViewInit
     inputSearch.setAttribute('maxlength', '8');
   }
 
-  public onInput(idStudent: string) {
-    if(idStudent.length === 8 && this.frm.valid) {
+  go(){
+    const searchText = this.frm.get('search').value as string;
+
+    if(searchText.length === 8 && this.frm.valid) {
       this._navCtrl.push(ExamSchedulePage, {
-        idStudent: idStudent
-      }, {duration: 250})
+        idStudent: searchText
+      }, {duration: 250});
     }
   }
 }
